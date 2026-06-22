@@ -1,15 +1,5 @@
-+ '  var ' + uid + 'isOpen=false;\n'
-+ '  window.' + uid + 'toggle=function(){' + uid + 'isOpen?' + uid + 'close():' + uid + 'open();}\n'
-+ '  window.' + uid + 'open=function(){\n'
-+ '    ' + uid + 'isOpen=true;\n'
-+ '    document.getElementById("' + uid + '-overlay").classList.add("open");\n'
-+ '  }\n'
-+ '  window.' + uid + 'close=function(){\n'
-+ '    ' + uid + 'isOpen=false;\n'
-+ '    document.getElementById("' + uid + '-overlay").classList.remove("open");\n'
-+ '  }\n'
-+ '  document.addEventListener("keydown",function(e){\n'
-+ '    if(e.key==="Escape")' + uid + 'close();\n'
-+ '  });\n'
-+ '<\/script>'
+I’ll compact our conversation history.
 
+Summary: You’re working on a SharePoint webpart popup generator (item_15.html). The buildCode() function generates HTML/CSS/JS as a string. The problem was spr2fd6toggle is not defined error in SharePoint because functions defined inside generated <script> tags aren’t in the global scope.
+
+Fix applied: Changed generated functions to use window.functionName = function(){} syntax, and ensured the keydown listener is included as actual code (not a comment). The corrected script section (lines 277–289) generates proper global functions with closing braces and the escape key listener.
