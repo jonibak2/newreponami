@@ -1,0 +1,682 @@
+Below is a prompt you can paste directly into Claude. It tells Claude to recreate the website almost pixel-perfect, while modernizing the code structure and adding a complete admin mode. It also forces everything into a single HTML file (HTML + CSS + JavaScript).
+
+⸻
+
+Prompt
+
+You are a senior UI/UX designer and frontend engineer.
+
+Your task is to recreate the website shown in the attached screenshot as accurately as possible.
+
+The goal is NOT to redesign it. The goal is to faithfully recreate the original interface while using modern HTML/CSS/JavaScript.
+
+Everything must be inside ONE SINGLE HTML FILE.
+
+No frameworks.
+
+No Bootstrap.
+
+No React.
+
+No Vue.
+
+No external CSS.
+
+No external JS.
+
+Only plain HTML, CSS and JavaScript.
+
+Use CSS variables.
+
+Use Flexbox and Grid.
+
+The page must be responsive while preserving the original desktop appearance.
+
+⸻
+
+General Appearance
+
+The website is an old Israeli Air Force internal portal.
+
+The design should intentionally preserve the early-2010s government/intranet aesthetic.
+
+Do not modernize the colors.
+
+Do not flatten the interface.
+
+Keep gradients.
+
+Keep borders.
+
+Keep shadows.
+
+Keep spacing.
+
+Keep proportions.
+
+Keep the original feeling.
+
+⸻
+
+Page Layout
+
+The page uses RTL.
+
+<html dir="rtl" lang="he">
+
+The entire page is centered.
+
+Maximum width around
+
+1200px
+
+White page background.
+
+Very light gray body background.
+
+⸻
+
+Header
+
+At the very top there is a white navigation area.
+
+Height approximately
+
+110px
+
+Inside it:
+
+Small navigation links aligned right.
+
+Very small font.
+
+Dark gray text.
+
+Logo area on far right.
+
+Some breadcrumb links.
+
+Very minimal.
+
+⸻
+
+Main Banner
+
+Immediately below header.
+
+Large horizontal banner.
+
+Height around
+
+110px
+
+Gradient background
+
+left:
+light blue
+
+center:
+white
+
+right:
+orange
+
+Exactly like screenshot.
+
+Large title:
+
+אתר הספרות החילי
+
+Very large dark blue font.
+
+Below it:
+
+הודעות - הוראות זרוע האוויר
+
+Inside a dark blue strip.
+
+Banner has subtle shadows.
+
+⸻
+
+Left Sidebar
+
+Width around
+
+250px
+
+Vertical stack of large blue buttons.
+
+Each button:
+
+Gradient blue
+
+Dark blue border
+
+Rounded corners (small radius)
+
+White text
+
+Book icon on left
+
+Some buttons have different icons
+
+Buttons are approximately
+
+55px tall.
+
+Spacing:
+
+6px
+
+Hover:
+
+Slightly brighter.
+
+Buttons have inset shadow.
+
+⸻
+
+Center Content
+
+This is the largest section.
+
+Contains multiple vertical columns.
+
+Each column has:
+
+A light blue title.
+
+Below it:
+
+Many blue rectangular buttons.
+
+Each button:
+
+Full width.
+
+Height around
+
+30px
+
+Dark blue background.
+
+White bold text.
+
+Small border.
+
+Tiny gradient.
+
+Very small shadow.
+
+Hover:
+
+Slight brightness.
+
+Columns have equal width.
+
+Gap:
+
+15px
+
+⸻
+
+Example Columns
+
+Create approximately the same amount.
+
+For example:
+
+רמ”א
+
+רלה”ג
+
+רל”א
+
+רמב”א
+
+רמ”ט
+
+Each title uses light blue background.
+
+Each category contains around
+
+8-12 buttons.
+
+Exactly like screenshot.
+
+⸻
+
+Right Column
+
+Contains another long vertical list.
+
+Gray buttons.
+
+Light blue section headers.
+
+Looks slightly different than center columns.
+
+Buttons:
+
+Gray gradient.
+
+Dark gray text.
+
+Height
+
+30px
+
+Spacing
+
+4px
+
+⸻
+
+Colors
+
+Main Blue
+
+#0f56c6
+
+Dark Blue
+
+#003f9f
+
+Light Blue
+
+#89d3f4
+
+Orange
+
+#e7b052
+
+Gray
+
+#9a9a9a
+
+Border
+
+#5f7ea7
+
+Background
+
+#ffffff
+
+Body
+
+#f5f5f5
+
+⸻
+
+Typography
+
+Use
+
+Arial
+
+Fallback
+
+sans-serif
+
+Title
+
+42px
+
+Subtitle
+
+24px
+
+Column titles
+
+22px
+
+Buttons
+
+15px
+
+Navigation
+
+13px
+
+⸻
+
+Buttons
+
+Every button should support:
+
+Hover animation
+
+Cursor pointer
+
+Box shadow
+
+Inset highlight
+
+Small border radius
+
+No excessive animation.
+
+Only
+
+transition: .15s;
+
+⸻
+
+Icons
+
+Create a reusable icon system.
+
+Every sidebar item accepts:
+
+book icon
+
+folder icon
+
+magnifier
+
+document
+
+shield
+
+etc.
+
+Icons can initially be emojis or inline SVG placeholders.
+
+The architecture must make replacing icons easy.
+
+⸻
+
+Link Data Structure
+
+All menu buttons MUST NOT be hardcoded individually.
+
+Instead create an array like:
+
+const sections = [
+{
+title:"רמ\"א",
+color:"blue",
+links:[
+{
+text:"מפקד",
+url:"#"
+},
+...
+]
+}
+];
+
+The entire interface must render dynamically from JavaScript.
+
+No duplicated HTML.
+
+⸻
+
+Search
+
+Top-right search box.
+
+Filters buttons instantly.
+
+Works across every section.
+
+Searches titles and links.
+
+⸻
+
+Admin Mode
+
+The page must contain a complete admin mode.
+
+Admin button hidden in top corner.
+
+Click opens password dialog.
+
+Default password:
+
+admin
+
+Store in localStorage.
+
+⸻
+
+After login show an admin panel.
+
+⸻
+
+Admin Features
+
+Add new category.
+
+Delete category.
+
+Rename category.
+
+Change category color.
+
+Reorder categories.
+
+⸻
+
+Inside each category:
+
+Add link.
+
+Delete link.
+
+Rename link.
+
+Change URL.
+
+Move link up/down.
+
+⸻
+
+Sidebar management:
+
+Add button.
+
+Delete button.
+
+Rename.
+
+Change icon.
+
+Change destination.
+
+⸻
+
+Banner management
+
+Edit title.
+
+Edit subtitle.
+
+Edit colors.
+
+⸻
+
+Theme editor
+
+Edit:
+
+blue
+
+light blue
+
+orange
+
+gray
+
+background
+
+border
+
+using color pickers.
+
+Save automatically.
+
+⸻
+
+Persistence
+
+Everything must persist using
+
+localStorage.
+
+Including:
+
+categories
+
+links
+
+sidebar
+
+theme
+
+header
+
+banner
+
+password
+
+No backend.
+
+⸻
+
+Export
+
+Button:
+
+Export JSON
+
+Downloads all data.
+
+⸻
+
+Import
+
+Upload JSON.
+
+Restores everything.
+
+⸻
+
+Reset
+
+Factory reset.
+
+Confirmation dialog.
+
+⸻
+
+Editing UX
+
+Every editable item has:
+
+Edit button
+
+Delete button
+
+Move up
+
+Move down
+
+Duplicate
+
+⸻
+
+Accessibility
+
+Keyboard navigation.
+
+Visible focus states.
+
+RTL support everywhere.
+
+⸻
+
+Responsive
+
+Desktop identical to screenshot.
+
+Tablet collapses slightly.
+
+Mobile:
+
+Sidebar becomes drawer.
+
+Columns stack vertically.
+
+Header scales correctly.
+
+Nothing overlaps.
+
+⸻
+
+Code Quality
+
+Everything inside one HTML file.
+
+Separate CSS and JS with comments.
+
+Well documented.
+
+Use classes.
+
+No inline styles except where generated dynamically.
+
+Use reusable rendering functions.
+
+⸻
+
+Functions
+
+Render layout
+
+Render sidebar
+
+Render categories
+
+Render links
+
+Render admin panel
+
+Save state
+
+Load state
+
+Import JSON
+
+Export JSON
+
+Factory reset
+
+Search
+
+Theme update
+
+Password update
+
+Move items
+
+Duplicate items
+
+⸻
+
+Animations
+
+Very subtle.
+
+Hover only.
+
+No flashy effects.
+
+Maintain the appearance of an old military intranet.
+
+⸻
+
+Final Result
+
+The finished page should look almost identical to the screenshot while being fully dynamic, maintainable, and editable entirely from the built-in admin mode. The entire application must be contained in one self-contained HTML file with embedded CSS and JavaScript.
